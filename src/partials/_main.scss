@@ -1,4 +1,5 @@
 .video-background {
+  animation:fade-in-fwd 1.5s cubic-bezier(.39,.575,.565,1.000) both;
   position: fixed;
   right: 0;
   bottom: 0;
@@ -6,19 +7,49 @@
   height: auto;
   z-index: -100;
 }
-@media (max-width: 1024px) {
+
+.holder {
+  font-size: 50px;
+  height: 92vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+    h1 {
+      animation:slide-in-left .5s cubic-bezier(.25,.46,.45,.94) both;
+      margin-top: -80px;
+    }
+    h2 {
+      animation:slide-in-right .5s cubic-bezier(.25,.46,.45,.94) both;
+    }
+    h1,h2 {
+      margin-bottom: -40px;
+      font-family: 'Yellowtail', cursive;
+      color: white;
+      text-shadow: -1px 0 black, 0 5px black, 3px 0 black, 0 -1px black;
+    }
+    p {
+      font-weight: bold;
+      text-align: center;
+      margin-top: 60px;
+      font-size: 36px;
+      font-family: 'Arsenal', sans-serif;
+      text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+    }
+}
+
+@media (min-width: 300px) and (max-width: 1024px) {
   .holder {
     background-image: url("./images/pasta.jpg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    width: 100vw;
+    h1,h2 {
+      font-size: 44px;
+    }
+    p {
+      font-size: 16px;
+    }
   }
-
-}
-
-.holder {
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }

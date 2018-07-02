@@ -1,0 +1,25 @@
+.show-more {
+  margin-top: 10px;
+  font-family: 'Arsenal', sans-serif;
+  font-size: 18px;
+  width: 200px;
+  height: 50px;
+  background-color: black;
+  color: white;
+  border: black;
+  border-radius: 10px;
+  &:hover {
+    cursor: pointer;
+  }
+}
+button::after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 2px;
+  background: #fff;
+  transition: width .3s;
+}
+button:hover::after {
+  width: 100%;
+}

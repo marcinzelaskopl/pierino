@@ -1,6 +1,6 @@
 .grid-container {
   width: 100%;
-  max-width: 1200px;
+  max-width: 1600px;
   margin: 0 auto; }
   .grid-container .row::before, .grid-container .row::after {
     content: "";
@@ -51,7 +51,85 @@
     .grid-container .col-12 {
       width: 100%; } }
 
+@keyframes fade-in {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+@keyframes flicker-1 {
+  0%,100% {
+    opacity: 1; }
+  41.99% {
+    opacity: 1; }
+  42% {
+    opacity: 0; }
+  43% {
+    opacity: 0; }
+  43.01% {
+    opacity: 1; }
+  47.99% {
+    opacity: 1; }
+  48% {
+    opacity: 0; }
+  49% {
+    opacity: 0; }
+  49.01% {
+    opacity: 1; } }
+@keyframes slide-in-left {
+  0% {
+    transform: translateX(-1000px);
+    opacity: 0; }
+  100% {
+    transform: translateX(0);
+    opacity: 1; } }
+@keyframes fade-in-fwd {
+  0% {
+    transform: translateZ(-80px);
+    opacity: 0; }
+  100% {
+    transform: translateZ(0);
+    opacity: 1; } }
+@keyframes slide-in-right {
+  0% {
+    transform: translateX(1000px);
+    opacity: 0; }
+  100% {
+    transform: translateX(0);
+    opacity: 1; } }
+.navigation {
+  font-family: 'Arsenal', sans-serif;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  color: white;
+  height: 4vh; }
+  .navigation a {
+    margin-top: 2px;
+    text-decoration: none;
+    color: white;
+    padding: 10px;
+    display: inline-block;
+    background-color: rgba(0, 0, 0, 0.5);
+    list-style: none;
+    margin-right: 15px;
+    font-size: 20px; }
+    .navigation a:hover {
+      cursor: pointer; }
+  .navigation a::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: #fff;
+    transition: width .3s; }
+  .navigation a:hover::after {
+    width: 100%; }
+
+@media (min-width: 300px) and (max-width: 1024px) {
+  .navigation {
+    background-color: black; } }
 .video-background {
+  animation: fade-in-fwd 1.5s cubic-bezier(0.39, 0.575, 0.565, 1) both;
   position: fixed;
   right: 0;
   bottom: 0;
@@ -59,16 +137,64 @@
   height: auto;
   z-index: -100; }
 
-@media (max-width: 1024px) {
+.holder {
+  font-size: 50px;
+  height: 92vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column; }
+  .holder h1 {
+    animation: slide-in-left 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+    margin-top: -80px; }
+  .holder h2 {
+    animation: slide-in-right 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both; }
+  .holder h1, .holder h2 {
+    margin-bottom: -40px;
+    font-family: 'Yellowtail', cursive;
+    color: white;
+    text-shadow: -1px 0 black, 0 5px black, 3px 0 black, 0 -1px black; }
+  .holder p {
+    font-weight: bold;
+    text-align: center;
+    margin-top: 60px;
+    font-size: 36px;
+    font-family: 'Arsenal', sans-serif;
+    text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white; }
+
+@media (min-width: 300px) and (max-width: 1024px) {
   .holder {
     background-image: url("./images/pasta.jpg");
     background-size: cover;
     background-position: center;
-    background-repeat: no-repeat; } }
-.holder {
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center; }
+    background-repeat: no-repeat;
+    width: 100vw; }
+    .holder h1, .holder h2 {
+      font-size: 44px; }
+    .holder p {
+      font-size: 16px; } }
+.show-more {
+  margin-top: 10px;
+  font-family: 'Arsenal', sans-serif;
+  font-size: 18px;
+  width: 200px;
+  height: 50px;
+  background-color: black;
+  color: white;
+  border: black;
+  border-radius: 10px; }
+  .show-more:hover {
+    cursor: pointer; }
+
+button::after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 2px;
+  background: #fff;
+  transition: width .3s; }
+
+button:hover::after {
+  width: 100%; }
 
 /*# sourceMappingURL=App.css.map */
